@@ -40,7 +40,7 @@ class ProcessadorTest {
 		boletos.add(boleto1);
 		boletos.add(boleto2);
 		boletos.add(boleto3);
-		processador.processaPagamentos(boletos);
+		processador.processaPagamentos(boletos, fatura1);
 		Assertions.assertAll(()-> assertEquals("PAGA", fatura1.getStatus()), () -> assertEquals(3, processador.getQtdePagamentos()));
 	}
 

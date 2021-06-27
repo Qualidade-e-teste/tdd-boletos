@@ -4,14 +4,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import processador.Fatura;
+
 class FaturaTest {
 
+	static Fatura fatura;
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		fatura = new Fatura("27/06/2021", 1500.00, "Cliente");
 	}
 
 	@AfterAll
@@ -27,8 +33,9 @@ class FaturaTest {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testStatus() {
+		fatura.setStatus("PAGA");
+		Assertions.assertEquals("PAGA", fatura.getStatus());
 	}
 
 }
